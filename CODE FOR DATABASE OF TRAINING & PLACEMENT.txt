@@ -1,0 +1,100 @@
+CODE FOR DATABASE OF TRAINING & PLACEMENT 
+
+from flask import Flask, render_template, request, redirect, url_for, jsonify
+import sqlite3
+app = Flask(__name__)
+# Function to create a connection to the SQLite database
+def create_connection():
+ conn = sqlite3.connect('training_placement.db')
+ return conn
+# Function to execute SQL queries
+def execute_query(query, data=None):
+ # Create a connection to the database
+ conn = create_connection()
+ cursor = conn.cursor()
+ # Execute the query
+ if data:
+ cursor.execute(query, data)
+ else:
+ cursor.execute(query)
+ # Commit changes to the database
+ conn.commit()
+ # Close the connection
+ conn.close()
+# Create tables if they don't exist
+def create_tables():
+ # SQL query to create students table
+ create_students_table = """
+ CREATE TABLE IF NOT EXISTS students (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ rollno TEXT NOT NULL,
+ name TEXT NOT NULL,
+ branch TEXT NOT NULL,
+ phno TEXT NOT NULL,
+ email TEXT NOT NULL,
+ address TEXT NOT NULL
+ );
+ """
+ # SQL query to create companies table
+ create_companies_table = """
+ CREATE TABLE IF NOT EXISTS companies (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ cname TEXT NOT NULL,
+ mincgpa TEXT NOT NULL
+ );
+ """
+ # Execute the queries
+ execute_query(create_students_table)
+ execute_query(create_companies_table)
+# Home page route
+@app.route('/')
+def index():
+return render_template('index.html')
+# Route to add a student
+@app.route('/add_student', methods=['POST'])
+def add_student():
+ if request.method == 'POST':
+ # Get form data
+ rollno = request.form['rollno']
+ name = request.form['name']
+ branch = request.form['branch']
+ phno = request.form['phno']
+ email = request.form['email']
+ address = request.form['address']
+ 
+ # Insert data into students table
+ insert_query = "INSERT INTO students (rollno, name, branch, phno, email, 
+address) VALUES (?, ?, ?, ?, ?, ?)"
+ student_data = (rollno, name, branch, phno, email, address)
+ 
+ execute_query(insert_query, student_data)
+ 
+ # Redirect to home page after adding student
+ return redirect(url_for('index'))
+# Route to retrieve all students
+@app.route('/get_students', methods=['GET'])
+def get_students():
+ # Retrieve all students from the database
+ query = "SELECT * FROM students"
+ conn = create_connection()
+ cursor = conn.cursor()
+ cursor.execute(query)
+ students = cursor.fetchall()
+ conn.close()
+ # Return students as JSON
+ return jsonify(students)
+# Route to delete a student
+@app.route('/delete_student/<int:id>', methods=['DELETE'])
+def delete_student(id):
+ # Delete student from the database
+ delete_query = "DELETE FROM students WHERE id = ?"
+ execute_query(delete_query, (id,))
+ # Return success message
+ return jsonify({'message': 'Student deleted successfully'})
+# Main function to run the Flask app
+if __name__ == '__main__':
+ # Create necessary tables if they don't exist
+ create_tables()
+ # Run the Flask app
+ app.run(debug=True)
+ 

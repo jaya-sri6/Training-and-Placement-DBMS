@@ -1,0 +1,178 @@
+SOURCE CODE FOR TRAINING AND PLACEMENT DATABASE MANAGEMENT
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Training and Placement Management System</title>
+ <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+ <header>
+ <h1>Training and Placement Management System</h1>
+ </header>
+ 
+ <!-- Student Information Section -->
+ <section id="student-info">
+ <h2>Student Information</h2>
+ <!-- Form for adding student information -->
+ <form>
+ <label for="rollno">Roll No:</label>
+ <input type="text" id="rollno" name="rollno" required>
+ 
+ <label for="name">Name:</label>
+ <input type="text" id="name" name="name" required>
+ 
+ <label for="branch">Branch:</label>
+ <input type="text" id="branch" name="branch" required>
+ 
+ <label for="phno">Phone Number:</label>
+ <input type="tel" id="phno" name="phno" required>
+ 
+ <label for="gmail">Gmail:</label>
+ <input type="email" id="gmail" name="gmail" required>
+ 
+ <label for="address">Address:</label>
+ <input type="text" id="address" name="address" required>
+ 
+ <button type="submit">Add Student</button>
+ </form>
+ </section>
+ 
+ <!-- Academics Section -->
+<section id="academics">
+ <h2>Academics</h2>
+ <!-- Form for adding academic information -->
+ <form>
+ <label for="rollno">Roll No:</label>
+ <input type="text" id="rollno" name="rollno" required>
+ 
+ <label for="attendance">Attendance:</label>
+ <input type="number" id="attendance" name="attendance" min="0" max="100" required>
+ 
+ <label for="cgpa">CGPA:</label>
+ <input type="text" id="cgpa" name="cgpa" required>
+ 
+ <label for="backlogs">Backlogs:</label>
+ <input type="number" id="backlogs" name="backlogs" min="0" required>
+ 
+ <button type="submit">Submit Academics</button>
+ </form>
+ </section>
+ <!-- Company Section -->
+ <section id="company">
+ <h2>Company Details</h2>
+ <!-- Form for adding company details -->
+ <form>
+ <label for="cname">Company Name:</label>
+ <input type="text" id="cname" name="cname" required>
+ 
+ <label for="mincgpa">Minimum CGPA:</label>
+ <input type="text" id="mincgpa" name="mincgpa" required>
+ 
+ <button type="submit">Add Company</button>
+ </form>
+ </section>
+ <!-- Requirements Section -->
+ <section id="requirements">
+ <h2>Requirements</h2>
+ <!-- Form for adding company requirements -->
+ <form>
+ <label for="cname">Company Name:</label>
+ <input type="text" id="cname" name="cname" required>
+ 
+ <label for="requirement">Requirement:</label>
+ <textarea id="requirement" name="requirement" required></textarea>
+ 
+ <button type="submit">Add Requirement</button>
+ </form>
+ </section>
+ <!-- Coding Scores Section -->
+<section id="coding-scores">
+ <h2>Coding Scores</h2>
+ <!-- Form for adding coding scores -->
+ <form>
+ <label for="rno">Roll No:</label>
+ <input type="text" id="rno" name="rno" required>
+ 
+ <label for="name">Name:</label>
+ <input type="text" id="name" name="name" required>
+ 
+ <label for="gmail">Gmail:</label>
+ <input type="email" id="gmail" name="gmail" required>
+ 
+ <label for="hackerrank">Hackerrank:</label>
+ <input type="text" id="hackerrank" name="hackerrank" required>
+ 
+ <label for="codechef">Codechef:</label>
+ <input type="text" id="codechef" name="codechef" required>
+ 
+ <label for="codeforces">Codeforces:</label>
+ <input type="text" id="codeforces" name="codeforces" required>
+ 
+ <label for="spoj">Spoj:</label>
+ <input type="text" id="spoj" name="spoj" required>
+ 
+ <button type="submit">Submit Coding Scores</button>
+ </form>
+ </section>
+ <!-- MS Interest Section -->
+ <section id="ms-interest">
+ <h2>MS Interest</h2>
+ <!-- Form for adding MS interest details -->
+ <form>
+ <label for="rno">Roll No:</label>
+ <input type="text" id="rno" name="rno" required>
+ 
+ <label for="branch">Branch:</label>
+ <input type="text" id="branch" name="branch" required>
+ 
+ <label for="mschoice">MS Choice:</label>
+ <input type="text" id="mschoice" name="mschoice" required>
+ 
+ <label for="startupchoice">Startup Choice:</label>
+ <input type="text" id="startupchoice" name="startupchoice" required>
+ 
+ <button type="submit">Submit MS Interest</button>
+ </form>
+ </section>
+ <!-- Placed Students Data Section -->
+<section id="placed-students-data">
+ <h2>Placed Students Data</h2>
+ <!-- Form for adding placed students data -->
+ <form>
+ <label for="rno">Roll No:</label>
+ <input type="text" id="rno" name="rno" required>
+ 
+ <label for="branch">Branch:</label>
+ <input type="text" id="branch" name="branch" required>
+ 
+ <label for="cname">Company Name:</label>
+ <input type="text" id="cname" name="cname" required>
+ 
+ <label for="package">Package:</label>
+ <input type="text" id="package" name="package" required>
+ 
+ <button type="submit">Add Placed Student</button>
+ </form>
+ </section>
+ <!-- Branch-wise Data Section -->
+ <section id="branch-wise-data">
+ <h2>Branch-wise Data</h2>
+ <!-- Form for adding branch-wise data -->
+ <form>
+ <label for="branch">Branch:</label>
+ <input type="text" id="branch" name="branch" required>
+ 
+ <label for="noofstudentsplaced">Number of Students Placed:</label>
+ <input type="number" id="noofstudentsplaced" name="noofstudentsplaced" min="0" required>
+ 
+ <button type="submit">Add Branch-wise Data</button>
+ </form>
+ </section>
+ <footer>
+ <p>&copy; 2024 Training and Placement Management System. All rights reserved.</p>
+ </footer>
+</body>
+</html>
