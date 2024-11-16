@@ -1,4 +1,3 @@
-# training and placement database management system.
 # this is my first miniproject upload in the Github
 This mini project based on training and placement database management system.
 The objective of a student database management system is to efficiently organize, store, retrieve, and manage information related to students. 
